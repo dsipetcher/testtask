@@ -1,182 +1,22 @@
-<!DOCTYPE html>
-<link rel="stylesheet" href="index.css">
-<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js">
+    
+  </script>
+</head>
 <body>
-    <form id="dealForm">
-        <fieldset class="fieldsetclient"> 
-          <div>
-            <div id="Capital">Client details</div>
-              <div id="name">
-                <input type="text" id="first-name" class="resizedTextbox" name="first-name" placeholder="First name" required>
-
-                <input type="text" id="last-name" class="resizedTextbox" name="last-name" placeholder="Last name" required>
-              </div>
-              <div id="name">
-                <input type="tel" id="phone" class="fullsizebox" size="40" name="phone" placeholder="Phone" required>
-
-                <input type="text" id="email" class="fullsizebox" size="40" name="email" placeholder="Email (optional)" required>
-              </div>  
-          </div>
-        </fieldset>
-        <fieldset class="fieldsetjobs">
-          <div>
-            <div id="Capital">Job Details</div>
-              <div id="name">
-                <select id="job-type" name="job-type" required>
-                  <option style="color: rgb(171, 164, 164);" value="" disabled selected>Job type</option>
-                </select>
-                <select id="job-source" name="job-source" required>
-                  <option value="" id='Small'disabled selected>Job source</option>
-                </select>
-                <input type="text" id="job-description" class="jobdescr" name="job-description" placeholder="Job description (optional)" required></input>
-              </div>            
-          </div>
-        </fieldset>
-        <fieldset class="fieldsetadress">
-          <div id="name">
-            <div id="Capital">Service Location</div>
-              <div>
-                  <input type="text" class="fullsizeboxadres" id="address" name="address" placeholder="Address" required>
-
-                  <input type="text" class="fullsizeboxadres" id="city" name="city" placeholder="City" required>
-
-                  <input type="text" class="fullsizeboxadres" id="state" name="state" placeholder="State" required>
-
-                  <input type="text" class="resizedTextboxadres" id="zip-code" name="zip-code" placeholder="Zip code" required>
-              
-                  <select id="area"  name="area" placeholder="Area" required>
-                    <option value="" disabled selected>Area</option>
-                  </select>
-              </div>    
-          </div>
-        </fieldset>
-        <fieldset class="fieldsetscheduled">
-          <div id="name">
-            <div id="Capital" class="sctext">Scheduled</div>
-                    
-              <input type="text" class="date" id="start-date" name="start-date" placeholder="start-date" onfocus="(this.type='date')" required/>
-              
-              <input type="text" class="time1" id="start-time" name="start-time" placeholder="start-time" onfocus="(this.type='time')" required>
-              
-              <input type="text" class="time2" id="end-time" name="end-time" placeholder="end-time" onfocus="(this.type='time')" required>
-              
-              <select id="test-select" class="fullsizeboxtest" name="test-select" required>
-                <option value="" disabled selected>Test Select</option>
-              </select>
-
-          </div>
-        </fieldset>
-        <button type="submit" class="subbut">Create Job</button>
-    </form>
-    <script>
-      const options1 = [
-    'Type 1',
-    'Type 2',
-    'Type 3'];
-    const dropdown1 = document.getElementById('job-type');
-    options1.forEach(option => {
-const optionElement = document.createElement('option');
-optionElement.value = option;
-optionElement.text = option;
-dropdown1.add(optionElement);
-});
-dropdown1.addEventListener('change', () => {
-const selectedOption = dropdown1.value;
-console.log('Selected option:', selectedOption);
-});
-const options2 = [
-    'Job source 1',
-    'Job source 2',
-    'Job source 3'];
-    const dropdown2 = document.getElementById('job-source');
-    options2.forEach(option => {
-const optionElement = document.createElement('option');
-optionElement.value = option;
-optionElement.text = option;
-dropdown2.add(optionElement);
-});
-dropdown2.addEventListener('change', () => {
-const selectedOption = dropdown2.value;
-console.log('Selected option:', selectedOption);
-});
-const options3 = [
-    'Area 1',
-    'Area 2',
-    'Area 3'];
-    const dropdown3 = document.getElementById('area');
-    options3.forEach(option => {
-const optionElement = document.createElement('option');
-optionElement.value = option;
-optionElement.text = option;
-dropdown3.add(optionElement);
-});
-dropdown3.addEventListener('change', () => {
-const selectedOption = dropdown3.value;
-console.log('Selected option:', selectedOption);
-});
-const options4 = [
-    'Test 1',
-    'Test 2',
-    'Test 3'];
-    const dropdown4 = document.getElementById('test-select');
-    options4.forEach(option => {
-const optionElement = document.createElement('option');
-optionElement.value = option;
-optionElement.text = option;
-dropdown4.add(optionElement);
-});
-dropdown4.addEventListener('change', () => {
-const selectedOption = dropdown4.value;
-console.log('Selected option:', selectedOption);
-});
-  const form = document.getElementById('dealForm');
-  const apiKey = '5e3d3763bc535ce964a3497a6fd9fcdadc68f731';
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-    const dealData = {
-      title:'job'+ '#'+ Math.floor (Math.random () * (10000 - 1 + 1)) + 1,
-      defe7c70291c5c45282051a44a469dc165d92d99: formData.get('first-name'),
-      ae65c3e2a5ed20cd605ed0774977ca24347eda93: formData.get('last-name'),
-      pipeline_id: '1',
-      stage_id: '1',
-      '0bde9b759c2d9bee58dabd9fcef8f802e614a927': formData.get('phone'),
-      '9f59e90e45eb43b8e8c8e981bb4c20208bab4913': formData.get('email'),
-      f2284ca563d88bf78787e49466d2879496fb016a: formData.get('address'),
-      c63cfcf814e2a1f797a0d949a62072ab218243a1: formData.get('city'),
-      '81b6740d8082f8a194b2c62e51882fa5a3f928cc': formData.get('state'),
-      '6b42c5e0ebd02c4ccf59654b2e5295ef812c4e88': formData.get('zip-code'),
-      f948f91f330f74b8e8e957c5b10ade8d82d44efe: formData.get('area'),
-      '0ec0454847ad9a01cdf6a7eddab1920371e8d514': formData.get('job-type'),
-      'ce1fd1a3ebe4de3577ff47c68a31167e7a660c50': formData.get('job-source'),
-      '31cf535ee59b1a36075d198124a0692ed483ee0b': formData.get('job-description'),
-      '55f760afc48efe116c4015c35ee2b6dbfa5a3fc8': `${formData.get('start-date')}T${formData.get('start-time')}:00`,
-      '61b26d420fa32a849b3c702452beaad36a5502da': formData.get('start-time'),
-      'bf7e938610ddc87263cd19a4f141508ab91b8a58': formData.get('end-time'),
-      'd8320a5d5bc8d8f84b9d0b2cd93f089842d7a484': formData.get('test-select')
-    };
-
-    try {
-      const response = await fetch('https://api.pipedrive.com/v1/deals?api_token=' + apiKey, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dealData)
-      });
-
-      if (response.ok) {
-        console.log('Deal created successfully!');
-        form.reset();
-      } else {
-        console.error('Error creating deal:', await response.json());
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  });
-    </script>
+  <script>
+    (async function() {
+      const sdk = await new AppExtensionsSDK().initialize();
+    })();
+    (async function() {
+      const sdk = await new AppExtensionsSDK().initialize({ size: { height: 700, width: 800 } });
+    })();
+  </script>
 </body>
-</html>
+<iframe
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="100%"
+  height="100%"
+  src="https://scented-pale-espadrille.glitch.me/">
+</iframe>
